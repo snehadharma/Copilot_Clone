@@ -44,5 +44,9 @@ async def favicon_ico() -> str:
 
 
 @app.get('/{path:path}')
-async def html_landing() -> HTMLResponse:
-    return HTMLResponse(prebuilt_html(title='FastUI Demo'))
+async def root() -> HTMLResponse:
+    html_contents="""
+<html><head><title>HTML here</title></head><body><h1>Hello World</h1></body></html>
+"""
+    return HTMLResponse(content=html_contents, status_code=200)
+    # return HTMLResponse(prebuilt_html(title='FastUI Demo'))
